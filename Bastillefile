@@ -9,5 +9,6 @@ PKG opensearch-dashboards${version}
 
 # enable and start opensearch-dashboards
 SYSRC opensearch_dashboards_enable=YES
+SYSRC opensearch_dashboards_syslog_output_enable=YES
 
 SERVICE opensearch-dashboards start
