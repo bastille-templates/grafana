@@ -1,0 +1,2 @@
+# opensearch-dashboards
+dashboards opensearch
