@@ -12,3 +12,5 @@ SYSRC opensearch_dashboards_enable=YES
 SYSRC opensearch_dashboards_syslog_output_enable=YES
 
 SERVICE opensearch-dashboards start
+
+RDR tcp 5601 5601
