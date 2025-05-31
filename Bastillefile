@@ -2,20 +2,16 @@
 CMD sed -e "s|quarterly|latest|g" -i.bak /etc/pkg/FreeBSD.conf
 
 ## 
-PKG prometheus node_exporter grafana
+PKG grafana
 
-CMD echo "${JAIL_IP} localhost localhost.local" > /etc/hosts
-
-# copy files
+CMD echo "${JAIL_IP} localhost local.domain" > /etc/hosts
 
 # enable service
-SYSRC prometheus_enable=YES
-SYSRC node_exporter_enable="YES"
 SYSRC grafana_enable=YES
 
 # run service
-SERVICE prometheus start
-SERVICE node_exporter start
 SERVICE grafana start
 
-#RDR tcp 3000 3000
+# Expose ports
+RDR clear
+RDR tcp 3000 3000

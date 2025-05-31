@@ -3,7 +3,7 @@ Grafana is a data visualisation platform and monitoring tool that can be used to
 
 ## Now apply template to container
 ```sh
-bastille create grafana 14.2-RELEASE 172.16.2.10
+bastille create grafana 14.2-RELEASE 172.16.2.2
 
 bastille bootstrap https://github.com/bastille-templates/grafana
 bastille template grafana bastille-templates/grafana
