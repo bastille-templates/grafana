@@ -23,7 +23,7 @@ scrape_configs:
 #      - targets: ["localhost:9090"]
 
   # add follows to monitor localhost
-  - job_name: node
+  - job_name: node_exporter
     scrape_interval: 1m
     scrape_timeout: 1m
     static_configs:
