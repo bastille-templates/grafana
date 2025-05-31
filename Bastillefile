@@ -1,14 +1,21 @@
-ARG version=210
+## Repository Latest
+CMD sed -e "s|quarterly|latest|g" -i.bak /etc/pkg/FreeBSD.conf
 
-# install required packages
-INCLUDE https://github.com/bastille-templates/opensearch
+## 
+PKG prometheus node_exporter grafana
 
-PKG opensearch-dashboards${version}
+CMD echo "${JAIL_IP} localhost localhost.local" > /etc/hosts
 
 # copy files
 
-# enable and start opensearch-dashboards
-SYSRC opensearch_dashboards_enable=YES
-SYSRC opensearch_dashboards_syslog_output_enable=YES
+# enable service
+SYSRC prometheus_enable=YES
+SYSRC node_exporter_enable="YES"
+SYSRC grafana_enable=YES
 
-SERVICE opensearch-dashboards start
+# run service
+SERVICE prometheus start
+SERVICE node_exporter start
+SERVICE grafana start
+
+#RDR tcp 3000 3000
